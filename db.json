@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "isha@gmail.com",
+      "password": 123456
+    },
+    {
+      "id": 2,
+      "email": "perisha@gmail.com",
+      "password": 123456
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "text": "Wash your face",
+      "completed": true,
+      "userId": 1
+    },
+    {
+      "text": "Brush your teeth",
+      "completed": false,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "text": "Make coffee",
+      "completed": false,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "text": "Make you bed",
+      "completed": true,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "text": "Go for a ride",
+      "completed": true,
+      "userId": 1,
+      "id": 6
+    }
+  ],
+  "todoss": [
+    {
+      "id": 1,
+      "userId": 1,
+      "normal": [
+        {
+          "text": "",
+          "completed": false,
+          "id": 1
+        }
+      ],
+      "youtube": [
+        {
+          "text": "",
+          "completed": false,
+          "id": 2
+        },
+        {
+          "text": "Go to shopping",
+          "completed": false,
+          "id": 14
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "gaming": [
+        {
+          "text": "Go to shopping",
+          "completed": false,
+          "id": 3
+        }
+      ]
+    }
+  ]
+}
