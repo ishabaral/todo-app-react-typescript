@@ -1,11 +1,13 @@
-import React, { useState } from "react";
 import "./style.css";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import { useHistory } from "react-router-dom";
 
-function Login() {
-  const [isLogged, setIsLogged] = useState(false)
-
+interface LoggedProp{
+  logged: (param: boolean) => void
+}
+const Login = ({logged}: LoggedProp) => {
+  const history = useHistory()
   const {
     register,
     handleSubmit,
@@ -13,15 +15,15 @@ function Login() {
   } = useForm();
 
   const onSubmit = () => {
-    setIsLogged(true)
-    console.log(isLogged)
+    logged(true)
+    history.push("/")
   };
 
   return (
     <div>
       <div className="login">
         <form className="box" onSubmit={handleSubmit(onSubmit)}>
-          <h1>Event Finder App</h1>
+          <h1>Todo App</h1>
           <input
             type="email"
             placeholder="Email"

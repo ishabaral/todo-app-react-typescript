@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React, { FC, SyntheticEvent } from 'react'
 
 interface Props{
     todo: Todo

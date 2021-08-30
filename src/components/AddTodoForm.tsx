@@ -1,10 +1,5 @@
 import axios from 'axios'
-import React, { SyntheticEvent, useState } from 'react'
-
-interface Props{
-    // addTodo: AddTodo
-    fetchAPI : FetchAPiType
-}
+import  { SyntheticEvent, useState } from 'react'
 
 const AddTodoForm= () => {
     const [text, setText] = useState("")
@@ -26,7 +21,7 @@ const AddTodoForm= () => {
 
     return (
         <div className= "add-todo">
-            <form>
+            <form className= "add-todo-form">
             <input 
                 className= "new task name"
                 aria-label= "new task name" 

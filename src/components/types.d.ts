@@ -13,3 +13,4 @@ type ToggleTodo = (selectedTodo: Todo) => void;
 type AddTodo = (id:number, text: string, userId:number) => void;
 
 type FetchAPiType = () => void
+

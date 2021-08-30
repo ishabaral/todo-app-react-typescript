@@ -32,7 +32,7 @@
     },
     {
       "text": "Make you bed",
-      "completed": true,
+      "completed": false,
       "userId": 1,
       "id": 5
     },
