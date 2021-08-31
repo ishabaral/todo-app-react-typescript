@@ -7,6 +7,9 @@ import { RootStateOrAny, useSelector } from 'react-redux'
 function App() {
   const isLogged = useSelector((state:RootStateOrAny) => state.isLogged)
 
+  const isLoggedState =  JSON.parse(localStorage.getItem('persist:root')!);
+  console.log(isLoggedState)
+
   return (
     <BrowserRouter>
       <Switch>

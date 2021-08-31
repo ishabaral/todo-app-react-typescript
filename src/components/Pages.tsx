@@ -64,12 +64,14 @@ const Pages = () => {
 
   return (
       <div className= "pages">
-          <button className= "logout-btn" onClick= {()=> handleLogout() }>Logout</button>
-         
           <div className= "todo-list">
       {/* <h1 className="title">Stuffs I need to do</h1> */}
       <div className="todo-header">
         <h2 className="list-title">My Todos</h2>
+          <a className= "log-out-btn tooltip" onClick= {()=> handleLogout() }>
+            <i className="fa fa-sign-out" aria-hidden="true"></i>
+            <span className="tooltiptext">Logout</span>
+          </a>
         {/* <p className="list-count">3 task remaining</p> */}
       </div>
       <div className="todo-body">

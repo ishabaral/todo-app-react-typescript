@@ -17,8 +17,7 @@ const AddTodoForm= ({handleAddTodos}: AddTodoFormProps ) => {
         <div className= "add-todo">
             <form className= "add-todo-form">
             <input 
-                className= "new task name"
-                aria-label= "new task name" 
+                className= "input-form"
                 type="text" 
                 value= {text}
                 onChange = {(e)=> setText(e.target.value)}

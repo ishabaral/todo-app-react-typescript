@@ -27,9 +27,11 @@ const TodoListItem = ({todo, toggleTodo, handleDeleteTodos}: Props) => {
     return (
         <div className= "task">
             <label  style= {{textDecoration: todo.completed? "line-through" : undefined}}>
-                <input type="checkbox" checked= {todo.completed} onChange= {()=> handleToggle(todo)} />
-                {/* <span  className="custom-checkbox" ></span> */}
-                <div>{todo.text}</div>
+                <div>
+                    <input type="checkbox" checked= {todo.completed} onChange= {()=> handleToggle(todo)} />
+                    {/* <span  className="custom-checkbox" ></span> */}
+                    <div>{todo.text}</div>
+                    </div>
                 <button className= "btn trash" onClick = {e => handleClick(todo.id)}><i className="fa fa-trash"/></button>
             </label>
             
