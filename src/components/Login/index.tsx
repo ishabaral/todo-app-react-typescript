@@ -33,6 +33,7 @@ const Login = ({setIsLogged, isLogged}: LoggedProp) => {
     const registeredUser = users.find(user => ( data.email == user.email && data.password == user.password))
     if(registeredUser){
       setIsLogged(true)
+      localStorage.setItem("user", JSON.stringify(registeredUser))
     }
     
     // await axios.post("http://localhost:4000/users", data, {

@@ -7,8 +7,11 @@ import TodoList from './TodoList';
 const Pages = () => {
   const [todos, setTodos] = useState<Array<Todo>>([])
 
+  const registeredUser =  JSON.parse(localStorage.getItem('user')!);
+  console.log(registeredUser.id)
+
   useEffect(()=> {
-   axios.get("http://localhost:4000/todos")
+   axios.get(`http://localhost:4000/users/${registeredUser.id}/todos`)
   .then(res => {
     setTodos(res.data)
   })
@@ -31,9 +34,9 @@ const Pages = () => {
     const addedTodos = {
       text: text,
       completed: false,
-      userId: 1
+      userId: registeredUser.id
     }
-    axios.post("http://localhost:4000/todos", addedTodos, {
+    axios.post(`http://localhost:4000/users/${registeredUser.id}/todos`, addedTodos, {
       headers: {
         "Content-type": "application/json"
   }
@@ -54,6 +57,8 @@ const Pages = () => {
 
   return (
       <div className= "pages">
+          <button className= "logout-btn">Logout</button>
+         
           <div className= "todo-list">
       {/* <h1 className="title">Stuffs I need to do</h1> */}
       <div className="todo-header">

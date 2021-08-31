@@ -8,7 +8,8 @@ interface Todo{
 interface User{
   email:string,
   password: string,
-  id?:number
+  id?:number,
+  isLogged?:boolean
 }
 
 interface AppProps{

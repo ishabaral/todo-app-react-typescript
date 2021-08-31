@@ -11,9 +11,9 @@
       "password": 123456
     },
     {
-      "email": "partima@gmail.com",
-      "password": "123456",
-      "id": 7
+      "email": "pratima@gmail.com",
+      "password": 123456,
+      "id": 3
     }
   ],
   "todos": [
@@ -43,7 +43,7 @@
     },
     {
       "text": "Dry Clothes",
-      "completed": false,
+      "completed": true,
       "userId": 1,
       "id": 7
     },
@@ -52,6 +52,48 @@
       "completed": true,
       "userId": 1,
       "id": 8
+    },
+    {
+      "text": "Visit Grandmum",
+      "completed": false,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "text": "See a doctor",
+      "completed": false,
+      "userId": "3",
+      "id": 10
+    },
+    {
+      "text": "Organize Party",
+      "completed": false,
+      "userId": "3",
+      "id": 11
+    },
+    {
+      "text": "Dance",
+      "completed": true,
+      "userId": "3",
+      "id": 12
+    },
+    {
+      "text": "Play Hot Potato",
+      "completed": false,
+      "userId": "3",
+      "id": 13
+    },
+    {
+      "text": "Attend meeting",
+      "completed": false,
+      "userId": "3",
+      "id": 14
+    },
+    {
+      "text": "Complete Project",
+      "completed": false,
+      "userId": "1",
+      "id": 15
     }
   ],
   "todoss": [
