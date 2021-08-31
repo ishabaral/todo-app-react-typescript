@@ -4,12 +4,11 @@ import { ErrorMessage } from "@hookform/error-message";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { RootStateOrAny, useDispatch} from "react-redux";
+import { login } from "../../redux/actions";
 
-interface LoggedProp{
-  setIsLogged:(para: boolean) => void
-  isLogged:boolean
-}
-const Login = ({setIsLogged, isLogged}: LoggedProp) => {
+const Login = () => {
+  const dispatch = useDispatch()
   const history = useHistory()
   const {
     register,
@@ -32,16 +31,9 @@ const Login = ({setIsLogged, isLogged}: LoggedProp) => {
   const onSubmit = async (data: User) => {
     const registeredUser = users.find(user => ( data.email == user.email && data.password == user.password))
     if(registeredUser){
-      setIsLogged(true)
+      dispatch(login())
       localStorage.setItem("user", JSON.stringify(registeredUser))
     }
-    
-    // await axios.post("http://localhost:4000/users", data, {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   });
-    // localStorage.setItem("user", JSON.stringify(isLogged))
 
     history.push("/")
   };

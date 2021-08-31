@@ -2,16 +2,16 @@ import Login from './components/Login'
 import Pages from './components/Pages'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import ProtectedRoute from './components/ProtectedRoute'
-import { useState } from 'react'
+import { RootStateOrAny, useSelector } from 'react-redux'
 
 function App() {
-  const [isLogged, setIsLogged] = useState(false)
+  const isLogged = useSelector((state:RootStateOrAny) => state.isLogged)
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path= "/login">
-          <Login setIsLogged= {setIsLogged} isLogged= {isLogged}/>
+          <Login />
         </Route>
         <ProtectedRoute path = "/" isLogged= {isLogged} component= {Pages} />
       </Switch>
