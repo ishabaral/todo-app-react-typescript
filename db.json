@@ -9,38 +9,49 @@
       "id": 2,
       "email": "perisha@gmail.com",
       "password": 123456
+    },
+    {
+      "email": "partima@gmail.com",
+      "password": "123456",
+      "id": 7
     }
   ],
   "todos": [
     {
-      "id": 1,
-      "text": "Wash your face",
-      "completed": true,
-      "userId": 1
-    },
-    {
-      "text": "Brush your teeth",
+      "text": "play football",
       "completed": false,
       "userId": 1,
       "id": 2
     },
     {
-      "text": "Make coffee",
+      "text": "Have lunch",
+      "completed": false,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "text": "Go shopping",
       "completed": false,
       "userId": 1,
       "id": 4
     },
     {
-      "text": "Make you bed",
+      "text": "Load Dishes",
       "completed": false,
       "userId": 1,
-      "id": 5
+      "id": 6
     },
     {
-      "text": "Go for a ride",
+      "text": "Dry Clothes",
+      "completed": false,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "text": "Visit Friends",
       "completed": true,
       "userId": 1,
-      "id": 6
+      "id": 8
     }
   ],
   "todoss": [

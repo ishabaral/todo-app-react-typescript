@@ -8,7 +8,7 @@ const Pages = () => {
   const [todos, setTodos] = useState<Array<Todo>>([])
 
   useEffect(()=> {
-  axios.get("http://localhost:4000/todos")
+   axios.get("http://localhost:4000/todos")
   .then(res => {
     setTodos(res.data)
   })
@@ -27,6 +27,31 @@ const Pages = () => {
     setTodos(newTodos);
   }
 
+  const handleAddTodos = (text:string)=>{
+    const addedTodos = {
+      text: text,
+      completed: false,
+      userId: 1
+    }
+    axios.post("http://localhost:4000/todos", addedTodos, {
+      headers: {
+        "Content-type": "application/json"
+  }
+  })
+    .then(res => setTodos([...todos, res.data]))
+    .catch(e => console.log(e))
+  }
+
+  const handleDeleteTodos = async (id:number)=> {
+    await axios.delete(`http://localhost:4000/todos/${id}`)
+    .then(() => {
+      const filteredTodos= todos.filter(todo => todo.id !== id);
+      setTodos(filteredTodos)
+    })
+
+    .catch(e => console.log(e))
+  }
+
   return (
       <div className= "pages">
           <div className= "todo-list">
@@ -36,8 +61,8 @@ const Pages = () => {
         {/* <p className="list-count">3 task remaining</p> */}
       </div>
       <div className="todo-body">
-        <AddTodoForm />
-        <TodoList todos= {todos} toggleTodo= {toggleTodo} />
+        <AddTodoForm handleAddTodos = {handleAddTodos}/>
+        <TodoList todos= {todos} toggleTodo= {toggleTodo} handleDeleteTodos= {handleDeleteTodos} />
       </div>
     </div>
       </div>

@@ -1,21 +1,15 @@
-import axios from 'axios'
 import  { SyntheticEvent, useState } from 'react'
 
-const AddTodoForm= () => {
+interface AddTodoFormProps{
+    handleAddTodos: (text:string) => void
+}
+
+const AddTodoForm= ({handleAddTodos}: AddTodoFormProps ) => {
     const [text, setText] = useState("")
 
     const handleClick = (e: SyntheticEvent) => {
-        const todos = {
-            text: text,
-            completed: false,
-            userId: 1
-        }
         e.preventDefault()
-        axios.post("http://localhost:4000/todos", todos, {
-            headers: {
-                "Content-type": "application/json"
-            }
-        })
+        handleAddTodos(text)
         setText('')
     }
 

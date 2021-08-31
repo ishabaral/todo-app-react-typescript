@@ -3,9 +3,10 @@ import axios from 'axios';
 interface Props{
     todo: Todo
     toggleTodo: ToggleTodo
+    handleDeleteTodos: (id:number) => void
 }
 
-const TodoListItem = ({todo, toggleTodo}: Props) => {
+const TodoListItem = ({todo, toggleTodo, handleDeleteTodos}: Props) => {
 
     const handleToggle = async (todo: Todo) => {
         toggleTodo(todo)
@@ -18,8 +19,8 @@ const TodoListItem = ({todo, toggleTodo}: Props) => {
     //   dispatch(fetchEvent());
     }
 
-    const handleDelete = async (id:number) => {
-        await axios.delete(`http://localhost:4000/todos/${id}`);
+    const handleClick = async (id:number) => {
+        handleDeleteTodos(id)
     //   dispatch(fetchEvent());
     }
 
@@ -27,9 +28,9 @@ const TodoListItem = ({todo, toggleTodo}: Props) => {
         <div className= "task">
             <label  style= {{textDecoration: todo.completed? "line-through" : undefined}}>
                 <input type="checkbox" checked= {todo.completed} onChange= {()=> handleToggle(todo)} />
-                <span  className="custom-checkbox" ></span>
+                {/* <span  className="custom-checkbox" ></span> */}
                 <div>{todo.text}</div>
-                <button className= "btn" onClick = {e => handleDelete(todo.id)}><i className="fa fa-trash"/></button>
+                <button className= "btn trash" onClick = {e => handleClick(todo.id)}><i className="fa fa-trash"/></button>
             </label>
             
             

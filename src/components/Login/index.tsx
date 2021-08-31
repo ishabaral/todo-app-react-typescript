@@ -2,11 +2,14 @@ import "./style.css";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 interface LoggedProp{
-  logged: (param: boolean) => void
+  setIsLogged:(para: boolean) => void
+  isLogged:boolean
 }
-const Login = ({logged}: LoggedProp) => {
+const Login = ({setIsLogged, isLogged}: LoggedProp) => {
   const history = useHistory()
   const {
     register,
@@ -14,8 +17,31 @@ const Login = ({logged}: LoggedProp) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {
-    logged(true)
+  const [users, setUsers] = useState<Array<User>>([])
+
+  useEffect(()=> {
+  axios.get("http://localhost:4000/users")
+  .then(res => {
+    setUsers(res.data)
+  })
+  .catch(e => {
+    console.log(e)
+  })
+}, [])
+
+  const onSubmit = async (data: User) => {
+    const registeredUser = users.find(user => ( data.email == user.email && data.password == user.password))
+    if(registeredUser){
+      setIsLogged(true)
+    }
+    
+    // await axios.post("http://localhost:4000/users", data, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
+    // localStorage.setItem("user", JSON.stringify(isLogged))
+
     history.push("/")
   };
 
