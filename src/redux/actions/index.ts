@@ -1,6 +1,4 @@
-import axios from "axios"
-import { Dispatch } from 'redux';
-import { FETCH_TODO_FAILURE, FETCH_TODO_REQUEST, FETCH_TODO_SUCCESS, LOGGED_IN, LOGGED_OUT } from "./actionTypes"
+import { CLEAR_TODO, FETCH_TODO_FAILURE, FETCH_TODO_REQUEST, FETCH_TODO_SUCCESS, FETCH_USER_FAILURE, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, LOGGED_IN, LOGGED_OUT } from "./actionTypes"
 
 export const login = () => {
     return{
@@ -14,13 +12,33 @@ export const logout = () =>{
     }
 }
 
+export const fetchUserRequest = () => {
+    return{
+        type: FETCH_USER_REQUEST
+    }
+}
+
+export const fetchUserSuccess = (users: User[]) => {
+    return{
+        type: FETCH_USER_SUCCESS,
+        payload: users
+    }
+}
+
+export const fetchUserFailure = (err:string) => {
+    return{
+        type: FETCH_USER_FAILURE,
+        payload: err
+    }
+}
+
 export const fetchTodoRequest = () => {
     return{
         type: FETCH_TODO_REQUEST
     }
 }
 
-export const fetchTodoSuccess = (todos:[]) => {
+export const fetchTodoSuccess = (todos: Todo[]) => {
     return{
         type: FETCH_TODO_SUCCESS,
         payload: todos
@@ -34,19 +52,8 @@ export const fetchTodoFailure = (err:string) => {
     }
 }
 
-const registeredUser =  JSON.parse(localStorage.getItem('user')!);
-
-export const fetchTodos = () => {
-    return function (dispatch: Dispatch) {
-        dispatch(fetchTodoRequest());
-        registeredUser && axios.get(`http://localhost:4000/users/${registeredUser.id}/todos`)
-          .then((res) => {
-            const event = res.data;
-            // console.log(event);
-            dispatch(fetchTodoSuccess(event));
-          })
-          .catch((err) => {
-            dispatch(fetchTodoFailure(err.message));
-          });
-      };
+export const clearTodos = () => {
+    return {
+        type: CLEAR_TODO
+    }
 }

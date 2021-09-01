@@ -1,24 +1,32 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import rootReducer from "./reducers/RootRducer";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
-import { fetchTodos } from "./actions";
+import { fetchTodos } from "./actions/fetchTodos";
+import authReducer from "./reducers/authReducer";
+import todosReducer from "./reducers/todosReducer";
+import { fetchUsers } from "./actions/fetchUser";
+import userReducer from "./reducers/userReducer";
 
 export type AppDispatch = typeof store.dispatch;
 
 const persistConfig = {
-    key: "root",
+    key: "auth",
     storage,
-    whiteList: ['isLogged']
+    whiteList: ['authReducer']
 }
 
-const pReducer = persistReducer(persistConfig ,rootReducer)
+const rootReducer = combineReducers({
+    authReducer: persistReducer(persistConfig ,authReducer), 
+    todosReducer: todosReducer,
+    userReducer: userReducer,
+})
 
-const store = createStore(pReducer, composeWithDevTools(applyMiddleware(thunk)))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 store.dispatch<any>(fetchTodos());
+store.dispatch<any>(fetchUsers())
 
 const persistor = persistStore(store)
 

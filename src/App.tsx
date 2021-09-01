@@ -1,22 +1,16 @@
-import Login from './components/Login'
-import Pages from './components/Pages'
+import LoginRegister from './components/LoginRegister'
+import Home from './components/Home'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import ProtectedRoute from './components/ProtectedRoute'
 import { RootStateOrAny, useSelector } from 'react-redux'
 
 function App() {
-  const isLogged = useSelector((state:RootStateOrAny) => state.isLogged)
-
-  const isLoggedState =  JSON.parse(localStorage.getItem('persist:root')!);
-  console.log(isLoggedState)
-
-  return (
+   return (
     <BrowserRouter>
       <Switch>
-        <Route path= "/login">
-          <Login />
-        </Route>
-        <ProtectedRoute path = "/" isLogged= {isLogged} component= {Pages} />
+        <Route path= "/login" component= {LoginRegister} />
+        <Route path = "/register" component = {LoginRegister}/>
+        <ProtectedRoute path = "/"  component= {Home} />
       </Switch>
     </BrowserRouter>
   )

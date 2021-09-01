@@ -1,12 +1,12 @@
+import { RootStateOrAny, useSelector } from "react-redux";
 import { Route, Redirect, RouteProps } from "react-router-dom";
 
 interface ProtectedRouteProps extends RouteProps{
   component: React.ComponentType<RouteProps>,
-  isLogged: boolean
 }
 
-const ProtectedRoute = ({ component: Component,isLogged, ...rest }: ProtectedRouteProps) => {
-
+const ProtectedRoute = ({ component: Component, ...rest }: ProtectedRouteProps) => {
+  const isLogged = useSelector((state:RootStateOrAny) => state.authReducer.isLogged)
   return (
     <Route
       {...rest}

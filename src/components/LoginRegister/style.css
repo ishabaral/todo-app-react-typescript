@@ -25,6 +25,7 @@
   background: none;
   display: block;
   margin: 5px auto;
+  font-size: 1rem;
   text-align: center;
   border: 2px solid #3498db;
   padding: 14px 10px;
@@ -53,6 +54,8 @@
   text-align: center;
   border: 2px solid #fff;
   padding: 14px 40px;
+  font-size: 1rem;
+  text-transform: uppercase;
   outline: none;
   color: white;
   width: 220px;
@@ -63,4 +66,9 @@
 .box input[type="submit"]:hover {
   color: #7020ff;
   background-color: white;
+}
+.register-link {
+  color: #fff;
+  padding: 5px;
+  font-size: 0.9rem;
 }
