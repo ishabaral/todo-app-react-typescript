@@ -6,6 +6,7 @@ import TodoList from './TodoList';
 import { useDispatch } from 'react-redux';
 import { clearTodos, logout } from '../redux/actions';
 import { fetchTodos } from '../redux/actions/fetchTodos';
+import { fetchUsers } from '../redux/actions/fetchUser';
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -13,6 +14,7 @@ const Home = () => {
   const handleLogout = () => {
     dispatch(logout())
     dispatch(clearTodos())
+    dispatch(fetchUsers())
     localStorage.removeItem('user')
   }
   useEffect(()=> {
