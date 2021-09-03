@@ -3,12 +3,16 @@ import  { SyntheticEvent, useState } from 'react'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchTodos } from '../redux/actions/fetchTodos';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
+import { toast } from 'react-toastify';
 
 const AddTodoForm= () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [text, setText] = useState("")
+    const [startDate, setStartDate] = useState(new Date())
     
     const registeredUser =  JSON.parse(localStorage.getItem('user')!);
 
@@ -17,6 +21,7 @@ const AddTodoForm= () => {
         const addedTodos = {
             text: text,
             completed: false,
+            date: moment(startDate).format('LL'),
             userId: registeredUser.id
           }
           await axios.post(`http://localhost:4000/users/${registeredUser.id}/todos`, addedTodos, {
@@ -24,6 +29,7 @@ const AddTodoForm= () => {
               "Content-type": "application/json"
         }
         })
+        toast.success("Added successfully")
         setText('')
         dispatch(fetchTodos())
         history.push("/")
@@ -39,10 +45,13 @@ const AddTodoForm= () => {
                 onChange = {(e)=> setText(e.target.value)}
                 placeholder= "Enter your Todo"
             />
+            <DatePicker selected={startDate}  dateFormat="dd/MM/yyyy" onChange={(date:any) => setStartDate(date)} />
+           
             <button className= "btn task" type="submit" onClick= {(e) => handleClick(e)}>
                 +
             </button>
             </form>
+           
         </div>
     )
 }

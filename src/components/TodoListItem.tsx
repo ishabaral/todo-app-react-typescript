@@ -1,6 +1,9 @@
+import React from 'react';
 import axios from 'axios';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { fetchTodos } from '../redux/actions/fetchTodos';
+import { toast } from 'react-toastify';
+
 
 interface Props{
     todo: Todo
@@ -9,7 +12,7 @@ interface Props{
 const TodoListItem = ({todo}: Props) => {
     const todos = useSelector((state:RootStateOrAny) => state.todosReducer.todos)
     const dispatch = useDispatch()
-    
+
     const handleTogglee = async(selectedTodo:Todo) => {
         const newTodos = todos.map((todo:Todo) => {
             if (todo.id === selectedTodo.id) {
@@ -28,6 +31,9 @@ const TodoListItem = ({todo}: Props) => {
 
     const handleDelete = async (id:number) => {
     await axios.delete(`http://localhost:4000/todos/${id}`)
+    toast.error("Deleted successfully!!!", {
+      icon: () =>  <i style= {{color: "white"}} className="fa fa-trash"/>
+    })
       dispatch(fetchTodos());
     }
 
@@ -37,7 +43,11 @@ const TodoListItem = ({todo}: Props) => {
                 <div>
                     <input type="checkbox" checked= {todo.completed} onChange= {()=> handleTogglee(todo)} />
                     {/* <span  className="custom-checkbox" ></span> */}
-                    <div>{todo.text}</div>
+                    {todo.text} 
+                    <div className= "date">
+                    {todo.date}
+                    </div>
+
                     </div>
                 <button className= "btn trash" onClick = {e => handleDelete(todo.id)}><i className="fa fa-trash"/></button>
             </label>

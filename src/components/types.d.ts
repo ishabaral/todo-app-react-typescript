@@ -7,14 +7,15 @@ interface Todo{
     text: string,
     completed: boolean,
     userId:number,
+    date: Date,
     id: number
 }
 
 interface User{
+  name?: string,
   email:string,
   password: string,
-  id?:number,
-  isLogged?:boolean
+  id?:number
 }
 
 interface AppProps{

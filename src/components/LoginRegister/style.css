@@ -20,7 +20,8 @@
   padding: 30px;
 }
 .box input[type="email"],
-.box input[type="password"] {
+.box input[type="password"],
+.box input[type="text"] {
   border: 0;
   background: none;
   display: block;
@@ -28,17 +29,35 @@
   font-size: 1rem;
   text-align: center;
   border: 2px solid #3498db;
-  padding: 14px 10px;
+  padding: 14px 44px 14px 10px;
   width: 220px;
   outline: none;
-  color: white;
+  color: rgb(10, 8, 8);
   border-radius: 24px;
   transition: 0.25s;
+  background-color: #fff;
 }
 
-.box input[type="email"]::placeholder,
-.box input[type="password"]::placeholder {
-  color: #fff;
+.pass-wrapper {
+  position: relative;
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.fa-eye-slash,
+.fa-eye {
+  position: absolute;
+  right: 26%;
+}
+.login-eye-position {
+  top: 59%;
+}
+.register-eye-position {
+  top: 65.5%;
+}
+.fa-eye-slash:hover,
+.fa-eye:hover {
+  cursor: pointer;
 }
 
 .box input[type="email"]:focus,

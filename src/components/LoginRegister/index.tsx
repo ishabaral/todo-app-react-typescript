@@ -6,8 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { RootStateOrAny, useDispatch, useSelector} from "react-redux";
 import { login } from "../../redux/actions";
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 import { fetchUsers } from "../../redux/actions/fetchUser";
 
 const LoginRegister = () => {
@@ -15,6 +14,7 @@ const LoginRegister = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
+  const [passwordVisibility, setPasswordVisibility] = useState(false)
 
   const {
     register,
@@ -26,6 +26,10 @@ const LoginRegister = () => {
     dispatch(fetchUsers())
   }, [])
 
+  const togglePasswordVisibility = () => {
+    setPasswordVisibility(!passwordVisibility)
+  }
+
   const onSubmit = async (data: User) => {
     if(location.state == "register"){
       /* Register */
@@ -36,6 +40,7 @@ const LoginRegister = () => {
         toast.warn("Email already exists, Please chose a unique email")
       } else{
         const newUser = {
+          name: data.name,
           email: data.email,
           password: data.password
         }
@@ -69,6 +74,24 @@ const LoginRegister = () => {
       <div className="login">
         <form className="box" onSubmit={handleSubmit(onSubmit)}>
           <h1>Todo App</h1>
+          { location.state== "register" ? <div>
+          <input
+            type="text"
+            placeholder="Full Name"
+            {...register("name", {
+              required: "Name must not be empty",
+              pattern: {
+                value: /[a-zA-Z]/,
+                message: "Must contain alphabets",
+              },
+            })}
+          />
+          <br />
+          <div style={{ color: "red" }}>
+            <ErrorMessage errors={errors} name="text" />
+          </div>
+          <br /> 
+          </div>: ""}
           <input
             type="email"
             placeholder="Email"
@@ -86,17 +109,25 @@ const LoginRegister = () => {
           </div>
 
           <br />
-          <input
-            type="password"
-            placeholder="Password"
-            {...register("password", {
-              required: "Password must not be empty",
-              pattern: {
-                value: /(?=.*[0-9])/,
-                message: "must contain some number",
-              },
-            })}
-          />
+          <div className= "password-wrapper">
+            <input
+              type= {passwordVisibility? "text": "password"}
+              placeholder="Password"
+              {...register("password", {
+                required: "Password must not be empty",
+                pattern: {
+                  value: /(?=.*[0-9])/,
+                  message: "must contain some number",
+                },
+              })}
+              />
+            <a onClick = {togglePasswordVisibility}>
+              {passwordVisibility? <i className= {location.state== "register"? "fa fa-eye register-eye-position" :"fa fa-eye login-eye-position"} aria-hidden="true"></i>:
+             <i className= {location.state== "register"? "fa fa-eye-slash register-eye-position" :"fa fa-eye-slash login-eye-position"} aria-hidden="true"></i>
+            }
+            </a>
+          </div>
+
           <br />
           <div style={{ color: "red" }}>
             <ErrorMessage errors={errors} name="password" />
@@ -118,7 +149,7 @@ const LoginRegister = () => {
         }
         </form>
       </div>
-        <ToastContainer position= "top-center" />
+        {/* <ToastContainer position= "top-center" /> */}
     </div>
   );
 }

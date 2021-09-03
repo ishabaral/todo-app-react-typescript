@@ -4,6 +4,14 @@ import TodoListItem from './TodoListItem'
 const TodoList = () => {
     const todos = useSelector((state:RootStateOrAny) => state.todosReducer.todos)
 
+    const sortByDate = (arr: Todo[])=> {
+        const sorter = (a: Todo, b:Todo) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime()
+        }
+        todos.sort(sorter)
+    }
+    sortByDate(todos)
+
     return (
         <div className="tasks">
             <ul>
