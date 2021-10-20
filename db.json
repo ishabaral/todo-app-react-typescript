@@ -103,7 +103,7 @@
     },
     {
       "text": "have breakfast",
-      "completed": false,
+      "completed": true,
       "date": "September 13, 2021",
       "userId": "1",
       "id": 27
@@ -137,13 +137,6 @@
       "id": 33
     },
     {
-      "text": "Go home",
-      "completed": true,
-      "date": "September 8, 2021",
-      "userId": "1",
-      "id": 34
-    },
-    {
       "text": "Visit Grandum",
       "completed": false,
       "date": "September 10, 2021",
@@ -159,10 +152,38 @@
     },
     {
       "text": "Cast a vote",
-      "completed": false,
+      "completed": true,
       "date": "September 15, 2021",
       "userId": "1",
       "id": 37
+    },
+    {
+      "text": "Go for a walk",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "1",
+      "id": 38
+    },
+    {
+      "text": "Help mum",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "1",
+      "id": 39
+    },
+    {
+      "text": "Wash dishes",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "1",
+      "id": 40
+    },
+    {
+      "text": "Play Futsal",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "5",
+      "id": 41
     }
   ],
   "todoss": [
