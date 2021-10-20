@@ -24,15 +24,21 @@ const AddTodoForm= () => {
             date: moment(startDate).format('LL'),
             userId: registeredUser.id
           }
-          await axios.post(`http://localhost:4000/users/${registeredUser.id}/todos`, addedTodos, {
-            headers: {
-              "Content-type": "application/json"
-        }
-        })
-        toast.success("Added successfully")
-        setText('')
-        dispatch(fetchTodos())
-        history.push("/")
+          if(text){
+            await axios.post(`http://localhost:4000/users/${registeredUser.id}/todos`, addedTodos, {
+                headers: {
+                  "Content-type": "application/json"
+            }
+            })
+            toast.success("Added successfully")
+            setText('')
+            dispatch(fetchTodos())
+            history.push("/")
+          }
+
+          else{
+            toast.error("Todo is empty")
+          }
     }
 
     return (

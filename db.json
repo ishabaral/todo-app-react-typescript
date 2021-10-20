@@ -50,6 +50,12 @@
       "email": "prati@gmail.com",
       "password": "123456",
       "id": 10
+    },
+    {
+      "name": "Niru",
+      "email": "nabina@gmail.com",
+      "password": "1234",
+      "id": 11
     }
   ],
   "todos": [
@@ -163,6 +169,27 @@
       "date": "September 15, 2021",
       "userId": "1",
       "id": 37
+    },
+    {
+      "text": "",
+      "completed": false,
+      "date": "October 20, 2021",
+      "userId": "undefined",
+      "id": 38
+    },
+    {
+      "text": "nnn",
+      "completed": false,
+      "date": "October 20, 2021",
+      "userId": "undefined",
+      "id": 39
+    },
+    {
+      "text": "This is the one",
+      "completed": false,
+      "date": "October 20, 2021",
+      "userId": "undefined",
+      "id": 40
     }
   ],
   "todoss": [
