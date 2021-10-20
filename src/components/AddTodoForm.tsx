@@ -43,19 +43,20 @@ const AddTodoForm= () => {
 
     return (
         <div className= "add-todo">
-            <form className= "add-todo-form">
-            <input 
-                className= "input-form"
-                type="text" 
-                value= {text}
-                onChange = {(e)=> setText(e.target.value)}
-                placeholder= "Enter your Todo"
-            />
-            <DatePicker selected={startDate}  dateFormat="dd/MM/yyyy" onChange={(date:any) => setStartDate(date)} />
-           
-            <button className= "btn task" type="submit" onClick= {(e) => handleClick(e)}>
-                +
-            </button>
+            <form className= "add-todo-form" action =  ''>
+                <input 
+                    className= "input-form"
+                    type="text" 
+                    required
+                    value= {text}
+                    onChange = {(e)=> setText(e.target.value)}
+                    placeholder= "Enter your Todo"
+                />
+                <DatePicker selected={startDate}  dateFormat="dd/MM/yyyy" onChange={(date:any) => setStartDate(date)} />
+            
+                <button className= "btn task" type="submit" onClick= {(e) => handleClick(e)}>
+                    +
+                </button>
             </form>
            
         </div>

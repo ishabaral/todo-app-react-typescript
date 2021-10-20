@@ -9,12 +9,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #7020ff;
+  background: #ACC4E3;
   text-align: center;
-  box-shadow: 0 0 8px #412c64;
+  box-shadow: 0 0 8px #8299b8;
 }
 .box h1 {
-  color: white;
+  color: rgb(12, 1, 1);
   text-transform: uppercase;
   font-weight: 500;
   padding: 30px;
@@ -23,7 +23,6 @@
 .box input[type="password"],
 .box input[type="text"] {
   border: 0;
-  background: none;
   display: block;
   margin: 5px auto;
   font-size: 1rem;
@@ -67,27 +66,27 @@
 }
 .box input[type="submit"] {
   border: 0;
-  background: none;
+  background: #fff;
   display: block;
   margin: 10px auto;
   text-align: center;
-  border: 2px solid #fff;
+  border: 2px solid #3498db;
   padding: 14px 40px;
   font-size: 1rem;
   text-transform: uppercase;
   outline: none;
-  color: white;
+  color: rgb(12, 1, 1);
   width: 220px;
   border-radius: 24px;
   transition: 0.25s;
   cursor: pointer;
 }
 .box input[type="submit"]:hover {
-  color: #7020ff;
+  color: #3498db;
   background-color: white;
 }
 .register-link {
-  color: #fff;
+  color: rgb(12, 1, 1);
   padding: 5px;
   font-size: 0.9rem;
 }
