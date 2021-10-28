@@ -1,0 +1,92 @@
+.login {
+  font-family: sans-serif;
+  background: #34495e !important;
+}
+.box {
+  width: 350px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ACC4E3;
+  text-align: center;
+  box-shadow: 0 0 8px #8299b8;
+}
+.box h1 {
+  color: rgb(12, 1, 1);
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 30px;
+}
+.box input[type="email"],
+.box input[type="password"],
+.box input[type="text"] {
+  border: 0;
+  display: block;
+  margin: 5px auto;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 44px 14px 10px;
+  width: 220px;
+  outline: none;
+  color: rgb(10, 8, 8);
+  border-radius: 24px;
+  transition: 0.25s;
+  background-color: #fff;
+}
+
+.pass-wrapper {
+  position: relative;
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.fa-eye-slash,
+.fa-eye {
+  position: absolute;
+  right: 26%;
+}
+.login-eye-position {
+  top: 59%;
+}
+.register-eye-position {
+  top: 65.5%;
+}
+.fa-eye-slash:hover,
+.fa-eye:hover {
+  cursor: pointer;
+}
+
+.box input[type="email"]:focus,
+.box input[type="password"]:focus {
+  /* width: 280px; */
+  border-color: #2ecc71;
+}
+.box input[type="submit"] {
+  border: 0;
+  background: #fff;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 40px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  outline: none;
+  color: rgb(12, 1, 1);
+  width: 220px;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type="submit"]:hover {
+  color: #3498db;
+  background-color: white;
+}
+.register-link {
+  color: rgb(12, 1, 1);
+  padding: 5px;
+  font-size: 0.9rem;
+}

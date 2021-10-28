@@ -1,0 +1,238 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "isha@gmail.com",
+      "password": 123456
+    },
+    {
+      "id": 2,
+      "email": "perisha@gmail.com",
+      "password": 123456
+    },
+    {
+      "email": "pratima@gmail.com",
+      "password": 123456,
+      "id": 3
+    },
+    {
+      "email": "parti@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "email": "nitesh@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "email": "divya@gmail.com",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "email": "xyz@gmail.com",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "email": "a@gmail.com",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "email": "isu@gmail.com",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "name": "Prati",
+      "email": "prati@gmail.com",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "name": "Niru",
+      "email": "nabina@gmail.com",
+      "password": "1234",
+      "id": 11
+    }
+  ],
+  "todos": [
+    {
+      "text": "See a doctor",
+      "completed": false,
+      "userId": "3",
+      "id": 10
+    },
+    {
+      "text": "Organize Party",
+      "completed": false,
+      "userId": "3",
+      "id": 11
+    },
+    {
+      "text": "Dance",
+      "completed": true,
+      "userId": "3",
+      "id": 12
+    },
+    {
+      "text": "Play Hot Potato",
+      "completed": false,
+      "userId": "3",
+      "id": 13
+    },
+    {
+      "text": "Attend meeting",
+      "completed": false,
+      "userId": "3",
+      "id": 14
+    },
+    {
+      "text": "Play Volleyball",
+      "completed": false,
+      "userId": "2",
+      "id": 19
+    },
+    {
+      "text": "Discuss Politics",
+      "completed": false,
+      "userId": "2",
+      "id": 20
+    },
+    {
+      "text": "Play Skipping",
+      "completed": false,
+      "userId": "2",
+      "id": 22
+    },
+    {
+      "text": "have breakfast",
+      "completed": true,
+      "date": "September 13, 2021",
+      "userId": "1",
+      "id": 27
+    },
+    {
+      "text": "Cast a vote",
+      "completed": false,
+      "date": "September 3, 2021",
+      "userId": "8",
+      "id": 28
+    },
+    {
+      "text": "Go mama's home",
+      "completed": true,
+      "date": "September 4, 2021",
+      "userId": "8",
+      "id": 29
+    },
+    {
+      "text": "Complete your project",
+      "completed": false,
+      "date": "September 2, 2021",
+      "userId": "8",
+      "id": 30
+    },
+    {
+      "text": "Load dishes",
+      "completed": false,
+      "date": "September 3, 2021",
+      "userId": "1",
+      "id": 33
+    },
+    {
+      "text": "Visit Grandum",
+      "completed": false,
+      "date": "September 10, 2021",
+      "userId": "1",
+      "id": 35
+    },
+    {
+      "text": "dgdf",
+      "completed": false,
+      "date": "September 27, 2021",
+      "userId": "3",
+      "id": 36
+    },
+    {
+      "text": "Cast a vote",
+      "completed": true,
+      "date": "September 15, 2021",
+      "userId": "1",
+      "id": 37
+    },
+    {
+      "text": "Go for a walk",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "1",
+      "id": 38
+    },
+    {
+      "text": "Help mum",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "1",
+      "id": 39
+    },
+    {
+      "text": "Wash dishes",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "1",
+      "id": 40
+    },
+    {
+      "text": "Play Futsal",
+      "completed": false,
+      "date": "September 28, 2021",
+      "userId": "5",
+      "id": 41
+    },
+    {
+      "text": "nnn",
+      "completed": false,
+      "date": "October 20, 2021",
+      "userId": "undefined",
+      "id": 39
+    }
+  ],
+  "todoss": [
+    {
+      "id": 1,
+      "userId": 1,
+      "normal": [
+        {
+          "text": "",
+          "completed": false,
+          "id": 1
+        }
+      ],
+      "youtube": [
+        {
+          "text": "",
+          "completed": false,
+          "id": 2
+        },
+        {
+          "text": "Go to shopping",
+          "completed": false,
+          "id": 14
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "gaming": [
+        {
+          "text": "Go to shopping",
+          "completed": false,
+          "id": 3
+        }
+      ]
+    }
+  ]
+}
