@@ -62,6 +62,12 @@
       "email": "admin@gmail.com",
       "password": "123456",
       "id": 12
+    },
+    {
+      "name": "Isha Baral",
+      "email": "isha2@gmail.com",
+      "password": "123456",
+      "id": 13
     }
   ],
   "todos": [
