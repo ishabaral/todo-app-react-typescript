@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { login } from '../../redux/actions'
 import { toast } from 'react-toastify'
+import 'react-datepicker/dist/react-datepicker.css'
 import { fetchUsers } from '../../redux/actions/fetchUser'
 
 const LoginRegister = () => {
@@ -30,7 +31,8 @@ const LoginRegister = () => {
     setPasswordVisibility(!passwordVisibility)
   }
 
-  const onSubmit = async (data: User) => {
+  const onSubmit = async (data: any) => {
+    console.log('data: ', data)
     if (location.state === 'register') {
       /* Register */
       const sameEmail = users.find((user: User) => data.email === user.email)
@@ -44,15 +46,22 @@ const LoginRegister = () => {
           email: data.email,
           password: data.password,
         }
-        axios.post(`http://localhost:4000/users`, newUser, {
-          headers: {
-            'Content-type': 'application/json',
-          },
-        })
-        dispatch(fetchUsers())
-        dispatch(login())
-        localStorage.setItem('user', JSON.stringify(newUser))
-        history.push('/')
+        axios
+          .post(`http://localhost:4000/users`, newUser, {
+            headers: {
+              'Content-type': 'application/json',
+            },
+          })
+          .then(() => {
+            dispatch(fetchUsers())
+            dispatch(login())
+            localStorage.setItem('user', JSON.stringify(newUser))
+            toast.success('Successfully Registered  !!!')
+            history.push('/')
+          })
+          .catch((err) => {
+            toast.error('Sorry, Unable to register')
+          })
       }
     } else {
       /* Login */
@@ -63,9 +72,10 @@ const LoginRegister = () => {
       if (registeredUser) {
         dispatch(login())
         localStorage.setItem('user', JSON.stringify(registeredUser))
+        toast.success('Successfully Loggedin !!!')
         history.push('/')
       } else {
-        toast.warn('Not a registered user')
+        toast.error('Not a registered user')
       }
     }
   }
@@ -109,7 +119,7 @@ const LoginRegister = () => {
         />
         <br />
         <div style={{ color: 'red' }}>
-          <ErrorMessage errors={errors} name='email' />
+          {/* <ErrorMessage errors={errors} name='email' /> */}
         </div>
 
         <br />
@@ -125,7 +135,7 @@ const LoginRegister = () => {
               },
             })}
           />
-          <div onClick={togglePasswordVisibility}>
+          <div className='pass-eye' onClick={togglePasswordVisibility}>
             {passwordVisibility ? (
               <i
                 className={
@@ -167,7 +177,7 @@ const LoginRegister = () => {
             }}
             className='register-link'
           >
-            Login
+            <span className='login-log'>Login</span>
           </Link>
         ) : (
           <Link
@@ -177,7 +187,7 @@ const LoginRegister = () => {
             }}
             className='register-link'
           >
-            Not yet User? Register
+            Not yet User?<span className='register-reg'>Register</span>
           </Link>
         )}
       </form>
