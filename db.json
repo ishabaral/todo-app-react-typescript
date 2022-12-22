@@ -68,6 +68,18 @@
       "email": "isha2@gmail.com",
       "password": "123456",
       "id": 13
+    },
+    {
+      "name": "Isha Baral",
+      "email": "isha1@gmail.com",
+      "password": "123456",
+      "id": 14
+    },
+    {
+      "name": "Perish Ghimire",
+      "email": "peru@gmail.com",
+      "password": "123456",
+      "id": 15
     }
   ],
   "todos": [
@@ -258,6 +270,20 @@
       "date": "December 16, 2022",
       "userId": "12",
       "id": 51
+    },
+    {
+      "text": "Prepare breakfast",
+      "completed": false,
+      "date": "December 13, 2022",
+      "userId": "14",
+      "id": 56
+    },
+    {
+      "text": "vg",
+      "completed": false,
+      "date": "December 22, 2022",
+      "userId": "14",
+      "id": 57
     }
   ],
   "todoss": [

@@ -84,6 +84,13 @@
 .react-datepicker__input-container input {
   border-bottom: 1px solid currentColor;
 }
+
+@media (max-width: 730px) {
+  .input-form {
+    width: 20rem;
+  }
+}
+
 @media (max-width: 436px) {
   .input-form {
     width: 11rem;
